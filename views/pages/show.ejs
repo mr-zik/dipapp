@@ -10,87 +10,115 @@
 	</header>
 	<main>
 		<section style="width: 80%;margin: 0 auto;">
-			<img src="static/img/flats/flat1.jpg" width="100%" height="300px">
-			<h1>Шведская улица 23,минск</h1>
-			квартира 2 комнаты  <span style="margin-left: 700px ">пожаловаться рейтинг 50/100</span>
-			<br>
-			<hr>	
-			<h2>Владелец</h2>
-			<br><br>
-			<a href="profile.html">Антон Иванов</a>
-			<br>
-			<hr>	
-			<h2>Описание</h2>
-			<br><br>
-			<h2>Местоположение</h2>
-			<br>
+			<div class="wrslider">
+				<div class="slbig"><img src="static/img/flats/flat13.jpg"></div>
+				<div class="slpreviev">
+					<img src="static/img/flats/flat1.jpg">
+					<img src="static/img/flats/flat15.jpg">
+					<img src="static/img/flats/flat14.jpg">
+					<img src="static/img/flats/flat13.jpg">
+					<img src="static/img/flats/flat1.jpg">
+					<img src="static/img/flats/flat1.jpg">
+					<img src="static/img/flats/flat1.jpg">
+					<img src="static/img/flats/flat1.jpg">
+				</div>
+			</div>
+			
+			<h1>Шведская улица 23,Минск</h1>
+			<hr>
+			<h2>Владелец <a href="profile.html">Антон Иванов</a></h2>
+			<hr>
+			<div class="descwrap">
+				<div class="description">
+					<h2>Описание</h2>
+					<!-- <b>Рейтинг:</b> 50/100<br> -->
+				    <b>Адрес:</b> Минск Притыцкого ул. д. 32<br>
+				    <b>Метро:</b>(Минск) Пушкинская<br><br>
+				    <b>Кол-во комнат:</b> 3<br>
+				    <b>Этаж:</b> 2<br>
+				    <b>Лифт:</b>есть <br><br>
+				    <b>Площадь (общая):</b> 62.96 м²<br>
+				    <b>Площадь (жилая):</b> 42.03 м²<br>
+				    <b>Площадь (кухня):</b> 7.83 м²<br>
+				    <br>
+				    <b>Тип дома:</b>Панельный<br>
+				    <b>Год постройки:</b> 1980 или ранее<br>  
+				</div>
+				<div>
+					<h2>Онлайн Бронирование</h2>
+					<span class="fa fa-lock" style="font-size: 30px;margin-left: 150px;"></span>
+					<br>
+					Владелец запретил использование данной функции
+					<br>
+					<% include ../partials/calendar %>
+					<hr>
+				</div>
+			</div>
+		    <hr>
 			<div class="address">
-                <div id="map" style="width: 50%;height: 300px;"></div>
-                <div style="width: 50%;height: 300px;">
-                    <h2>Как добраться</h2>
-                    <br>
+				<!-- <div>
+                    <h3>Как добраться</h3>
                     <p>тралик: 18 25 37 <br>
                     автобус: 1233 345 654<br>
                     такси:из любой точки города<br>
                     ближайшая станция метро: академия наук
                     </p>
-
-                </div>
+                </div> -->
+                <div id="map" style="width: 50%;height: 300px;"></div>
             </div>
 			<br><br>
-			<h2>Отзывы (5)</h2>	
-			<br>
-			<br>
-			<section class="replys">
-				<div class="repl-item">
-					<div class="ri-image" >
+			<h2>Отзывы (4)</h2>	
+			
+			<section class="comments">
+				<div class="comment-item">
+					<div class="comment-image" >
 						<img src="static/img/avatars/avatar1.jpg" width="70px" height="70px">
 					</div>
-					<div class="r">
-						<div class="ri-name">Jan<span>  17-12-2017</span></div>
+					<div class="comment-description">
+						<div class="comment-name"><b>Jan</b><span>17-12-2017</span></div>
 						норм квартирка,жил пару недель.хозяева адекватные,проблем не возникало.
 					</div>
 				</div>
-				<div class="repl-item">
-					<div class="ri-image" >
+				<div class="comment-item">
+					<div class="comment-image" >
 						<img src="static/img/avatars/avatar1.jpg" width="70px" height="70px">
 					</div>
-					<div class="r">
-						<div class="ri-name">Jan<span>  17-12-2017</span></div>
+					<div class="comment-description">
+						<div class="comment-name"><b>Jan</b><span>  17-12-2017</span></div>
 						норм квартирка,жил пару недель.хозяева адекватные,проблем не возникало.
 					</div>
 				</div>
-				<div class="repl-item">
-					<div class="ri-image" >
+				<div class="comment-item">
+					<div class="comment-image" >
 						<img src="static/img/avatars/avatar1.jpg" width="70px" height="70px">
 					</div>
-					<div class="r">
-						<div class="ri-name">Jan<span>  17-12-2017</span></div>
+					<div class="comment-description">
+						<div class="comment-name"><b>Jan</b><span>  17-12-2017</span></div>
 						норм квартирка,жил пару недель.хозяева адекватные,проблем не возникало.
 					</div>
 				</div>
-				<div class="repl-item">
-					<div class="ri-image" >
+				<div class="comment-item">
+					<div class="comment-image" >
 						<img src="static/img/avatars/avatar1.jpg" width="70px" height="70px">
 					</div>
-					<div class="r">
-						<div class="ri-name">Jan<span>  17-12-2017</span></div>
-						норм квартирка,жил пару недель.хозяева адекватные,проблем не возникало.
+					<div class="comment-description">
+						<div class="comment-name"><b>Jan</b><span>  17-12-2017</span></div>
+						норм квартирка,жил пару недель.хозяева адекватные,проблем не возникало.sdf sdf dfs dfshs asdfk jklj ds sdjh dskjfh askldj sdkjf kdslj  lkdj kl jsd flkdjf klksdj 
 					</div>
 				</div>
-
-				<div>
+				<div style="width: 50%;margin-left: 82px;">
 					<form>
-						
-						<input type="textarea" name=""><br>
-						<br>
-						<textarea placeholder="напишите отзыв"></textarea>
-						<button>отправить</button>
+						<!-- <div class="form-group">
+							<label>asd</label>
+							<input type="text" class="form-control" name="">
+						</div> -->
+						<textarea placeholder="напишите отзыв" class="form-control"></textarea><br>
+						<button class="btn btn-success btn-lg">отправить</button><br><br>
 					</form>
 				</div>
 			</section>
 		</section>
-		<% include ../partials/calendar %>
+		
 	</main>
 	<footer>
 		<% include ../partials/footer %>
