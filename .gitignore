@@ -1,5 +1,5 @@
 database.js
 common.js
-node_modules/
-static/img/
-uploads/
+.node_modules/
+.static/img/
+.uploads/
