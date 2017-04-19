@@ -1,0 +1,48 @@
+.searchresults{
+  width: 80%;
+  min-height: 500px;
+  margin: 10px 10%;
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.search_item{
+  width: 32%;
+  height: 300px;
+  background-color: #fff;
+  margin-bottom: 20px; 
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  
+}
+.search_item>a{
+  text-decoration: none;
+}
+.s_item_image{
+  width: 100%;
+  height: 200px;
+  background-color: #ccc;
+}
+.s_item_image>img{
+  width: 100%;
+  height: 200px;
+}
+.s_item_description{
+  box-sizing: border-box;
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  color: #505050;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.item-name{
+  font-size: 18px;
+  font-weight: bolder;
+}
+.item-price{
+  color:#00A528;
+}

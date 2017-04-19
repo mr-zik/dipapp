@@ -1,0 +1,109 @@
+<!-- views/index.ejs -->
+<!doctype html>
+<html lang="ru">
+<head>
+    <% include ../partials/head %>
+    <!-- <title>Node Authentication</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+    <!--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> --><!-- load fontawesome -->
+    <!--<style>
+        body        { padding-top:80px; }
+    </style> -->
+</head>
+<body>
+    <header>
+        <% include ../partials/header %>
+    </header>
+    <main>
+		<div class="slider-container">
+			<ul id="slides">
+				<li class="slide showing"><img src="static/img/flats/flat4.jpg"></li>
+				<li class="slide"><img src="static/img/flats/flat8.png"></li>
+				<li class="slide"><img src="static/img/flats/flat3.jpg"></li>
+			</ul>
+			<!-- <div class="buttons">
+				<button class="controls" id="previous">&lt;</button>
+
+				<button class="controls" id="pause">&#10074;&#10074;</button>
+
+				<button class="controls" id="next">&gt;</button>
+			</div> -->
+		</div>
+
+		
+    </main>
+
+    <!-- <div class="container">
+        <div class="jumbotron text-center">
+            <h1><span class="fa fa-lock"></span> Node Authentication</h1>
+
+            <p>Login or Register with:</p>
+
+            <a href="/login" class="btn btn-default"><span class="fa fa-user"></span> Local Login</a>
+            <a href="/signup" class="btn btn-default"><span class="fa fa-user"></span> Local Signup</a>
+        </div>
+    </div> -->
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+</body>
+
+<script type="text/javascript">
+    var controls = document.querySelectorAll('.controls');
+for(var i=0; i<controls.length; i++){
+    controls[i].style.display = 'inline-block';
+}
+
+var slides = document.querySelectorAll('#slides .slide');
+var currentSlide = 0;
+var slideInterval = setInterval(nextSlide,2000);
+
+function nextSlide(){
+    goToSlide(currentSlide+1);
+}
+
+function previousSlide(){
+    goToSlide(currentSlide-1);
+}
+
+function goToSlide(n){
+    slides[currentSlide].className = 'slide';
+    currentSlide = (n+slides.length)%slides.length;
+    slides[currentSlide].className = 'slide showing';
+}
+
+
+var playing = true;
+var pauseButton = document.getElementById('pause');
+
+function pauseSlideshow(){
+    pauseButton.innerHTML = '&#9658;'; // play character
+    playing = false;
+    clearInterval(slideInterval);
+}
+
+function playSlideshow(){
+    pauseButton.innerHTML = '&#10074;&#10074;'; // pause character
+    playing = true;
+    slideInterval = setInterval(nextSlide,2000);
+}
+
+pauseButton.onclick = function(){
+    if(playing){ pauseSlideshow(); }
+    else{ playSlideshow(); }
+};
+
+var next = document.getElementById('next');
+var previous = document.getElementById('previous');
+
+next.onclick = function(){
+    pauseSlideshow();
+    nextSlide();
+};
+previous.onclick = function(){
+    pauseSlideshow();
+    previousSlide();
+};
+</script>
+</html>

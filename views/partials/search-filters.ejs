@@ -1,0 +1,49 @@
+<section class="search_filters">
+	<form method="get" action="#">  
+		<input type="text" name="pricefrom" placeholder="цена от">
+		<input type="text" name="priceto" placeholder="цена до">
+		<select name="city">
+			<option value="minsk">Минск</option>
+			<option>Гомель</option>
+			<option>Брест</option>
+			<option>Гродно</option>
+			<option>Витебск</option>
+			<option>Могилев</option>
+		</select>
+		<select name="metro">
+			<option>Метро</option>
+			<option>Петровщина</option>
+			<option>Малиновка</option>
+			<option>Грушевка</option>
+			<option></option>
+			<option></option>
+		</select>
+		<select name="room">
+			<option>1 комната</option>
+			<option>2 комнаты</option>
+			<option>3 комната</option>
+			<option>4 комнаты</option>
+			<option>4+ комнаты</option>
+		</select>
+		<select name="agency">
+			<option value="agency">От агентства</option>
+			<option>От собственника</option>
+			<option>Все</option>
+		</select>
+		<div id="morefilters">
+			улица дом?<br>
+			сортировать по рейтингу\дате<br>
+			длительность?сутки/несколкьо\длительный срок<br>
+			с возможностью бронирования(да/нет)<br>
+			<label for="studia">студия</label><input type="checkbox" name="" id="studia"><br>
+			площади?<br>этажности<br>
+		<hr>
+		отобразить таблицей по 3 /по 2/с картой<br>
+		всего результатов найдено :112011
+
+
+		</div><!--morefilters-->
+		<button type="button" class="searchbtn searchbtnR" onclick="toggleFilters()">Все фильтры</button>
+		<button class="searchbtn">Искать</button>
+	</form>
+</section>

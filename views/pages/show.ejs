@@ -1,0 +1,114 @@
+<!-- views/search.ejs -->
+<!doctype html>
+<html lang="ru">
+<head>
+    <% include ../partials/head %>
+</head>
+<body>
+	<header>
+		<% include ../partials/header %>
+	</header>
+	<main>
+		<section style="width: 80%;margin: 0 auto;">
+			<img src="static/img/flats/flat1.jpg" width="100%" height="300px">
+			<h1>Шведская улица 23,минск</h1>
+			квартира 2 комнаты  <span style="margin-left: 700px ">пожаловаться рейтинг 50/100</span>
+			<br>
+			<hr>	
+			<h2>Владелец</h2>
+			<br><br>
+			<a href="profile.html">Антон Иванов</a>
+			<br>
+			<hr>	
+			<h2>Описание</h2>
+			<br><br>
+			<h2>Местоположение</h2>
+			<br>
+			<div class="address">
+                <div id="map" style="width: 50%;height: 300px;"></div>
+                <div style="width: 50%;height: 300px;">
+                    <h2>Как добраться</h2>
+                    <br>
+                    <p>тралик: 18 25 37 <br>
+                    автобус: 1233 345 654<br>
+                    такси:из любой точки города<br>
+                    ближайшая станция метро: академия наук
+                    </p>
+
+                </div>
+            </div>
+			<br><br>
+			<h2>Отзывы (5)</h2>	
+			<br>
+			<br>
+			<section class="replys">
+				<div class="repl-item">
+					<div class="ri-image" >
+						<img src="static/img/avatars/avatar1.jpg" width="70px" height="70px">
+					</div>
+					<div class="r">
+						<div class="ri-name">Jan<span>  17-12-2017</span></div>
+						норм квартирка,жил пару недель.хозяева адекватные,проблем не возникало.
+					</div>
+				</div>
+				<div class="repl-item">
+					<div class="ri-image" >
+						<img src="static/img/avatars/avatar1.jpg" width="70px" height="70px">
+					</div>
+					<div class="r">
+						<div class="ri-name">Jan<span>  17-12-2017</span></div>
+						норм квартирка,жил пару недель.хозяева адекватные,проблем не возникало.
+					</div>
+				</div>
+				<div class="repl-item">
+					<div class="ri-image" >
+						<img src="static/img/avatars/avatar1.jpg" width="70px" height="70px">
+					</div>
+					<div class="r">
+						<div class="ri-name">Jan<span>  17-12-2017</span></div>
+						норм квартирка,жил пару недель.хозяева адекватные,проблем не возникало.
+					</div>
+				</div>
+				<div class="repl-item">
+					<div class="ri-image" >
+						<img src="static/img/avatars/avatar1.jpg" width="70px" height="70px">
+					</div>
+					<div class="r">
+						<div class="ri-name">Jan<span>  17-12-2017</span></div>
+						норм квартирка,жил пару недель.хозяева адекватные,проблем не возникало.
+					</div>
+				</div>
+
+				<div>
+					<form>
+						
+						<input type="textarea" name=""><br>
+						<br>
+						<textarea placeholder="напишите отзыв"></textarea>
+						<button>отправить</button>
+					</form>
+				</div>
+			</section>
+		</section>
+		<% include ../partials/calendar %>
+	</main>
+	<footer>
+		<% include ../partials/footer %>
+	</footer>
+
+<!-- скрипты необходимые для карты-->
+<script type="text/javascript">
+	var map;
+	function initMap() {
+	  map = new google.maps.Map(document.getElementById('map'), {
+	    center: {lat: -34.397, lng: 150.644},
+	    zoom: 8
+	  });
+	}
+</script>
+<script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZNcrzV82Jsf10l1JkdHcAxUetSArqRos&callback=initMap">
+</script>
+<!-- конец скрипта-->
+</body>
+</html>
