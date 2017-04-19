@@ -1,0 +1,127 @@
+<form method="get" action="/flat/search">
+<br>
+
+
+<select id="filter-estate" name="flat">
+    <option value="1">Квартира</option>
+    <option value="0">Дом</option>
+</select>
+
+
+
+<br>
+<br>
+ 
+   <!--  
+   <input type="text" name="price" id="price" placeholder="цена"> 
+    
+
+    <select id="filter-currency" name="currency">
+    <option value="USD">USD</option>
+    <option value="BYN">BYN</option>
+    </select>
+   -->
+
+<h4>цена: </h4>
+<div class="input-group">
+  <span class="input-group-addon">$</span>
+  <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+  <span class="input-group-addon">.00</span>
+</div>
+
+<br>
+<!-- <div class="input-group">
+  
+  <input type="text" class="form-control" >
+  
+</div> -->
+
+
+<br>
+<br>
+
+
+<h4>адрес: </h4>
+<select id="filter-city" name="city">
+    <option>Минск</option>
+    <option>Гомель</option>
+    <option>Могилев</option>
+    <option>Витебск</option>
+    <option>Гродно</option>
+    <option>Брест</option>
+</select>
+
+<select id="filter-district" name="district">
+    <option>Советский</option>
+    <option>Железнодорожный</option>
+    <option>Фрунзенский</option>
+    <option>Опасный</option>
+</select>
+
+<input type="text" name="street" id="filter-street" placeholder="улица">
+
+<select id="filter-metro" name="underground">
+    <option>Академия наук</option>
+    <option>Яколаса</option>
+    <option>Победы</option>
+    <option>Институт культуры</option>
+</select>
+
+<br><br>
+<h4>Количество раздельных комнат  </h4>
+
+
+<label>1 <input type="checkbox" name="roomCount" id="filter-room1" value="1"></label>
+<label>2 <input type="checkbox" name="roomCount" id="filter-room2" value="2"></label>
+<label>3 <input type="checkbox" name="roomCount" id="filter-room3" value="3"></label>
+<label>4 <input type="checkbox" name="roomCount" id="filter-room4" value="4"></label>
+<label>4+<input type="checkbox" name="roomCount" id="filter-room5" value="5"></label>
+<br>
+<br>
+
+<h4>Этаж:     из</h4> 
+<select name="floorNum" id="filter-floor-num">
+    <option>этаж</option>
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>10</option>
+</select>
+
+<label>
+    <input type="text" name="houseFloorNub" id="filter-total-flors-num" placeholder="всего этажей">
+</label>
+<br>
+<br>
+
+
+<h3>Укажите тип квартиры  </h3>
+<select name="type" id="filter-house-type">
+    <option>тип квартиры</option>
+    <option>хрущевка</option>
+    <option>брежневка</option>
+    <option>сталинка</option>
+    <option>чешский проект</option>
+    <option>улучшенный проект</option>
+    <option>стандартный проект</option>
+</select>
+<br><br>
+
+
+<h4>Укажите год постройки  </h4>
+<label>
+    <input type="text" name="buildYear" id="filter-build-year" placeholder="год">
+</label>
+<br><br>
+<h4>Укажите площади квартиры</h4>
+<label>общая площадь
+    <input type="text" name="squareFrom" id="filter-com-square-from" placeholder="S">
+</label>
+<br>
+<label>жилая площадь
+    <input type="text" name="squareLiveFrom" id="filter-liv-square-from" placeholder="S">
+</label>
+<br>
+<label>площадь кухни
+    <input type="text" name="squareKitchenFrom" id="filter-kit-square-from" placeholder="S">
+</label>

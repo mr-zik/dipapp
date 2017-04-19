@@ -3,34 +3,41 @@
 <html lang="ru">
 <head>
     <% include ../partials/head %>
-    <!-- <title>Node Authentication</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
-    <!--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> --><!-- load fontawesome -->
-    <!--<style>
-        body        { padding-top:80px; }
-    </style> -->
 </head>
 <body>
     <header>
         <% include ../partials/header %>
     </header>
     <main>
-        <h1>add</h1>
+        <section class="add">
+        <h2>Добавление нового объекта</h2>
+           
+                <% include ../partials/steps %>
+
+                <div id="step1" class="w3-container city" style="display:block">
+                    <% include ../partials/step1 %>
+                </div>
+
+                <div id="step2" class="w3-container city" style="display:none">
+                    <% include ../partials/step2 %>
+                </div>
+
+                <div id="step3" class="w3-container city" style="display:none">
+                    <button type="submit">Send</button>
+                    </form>
+                </div>
+                <!--
+                <% include ../partials/steps %>
+                -->
+            <!-- </div> --><!---->
+        </section>
     </main>
-
-    <!-- <div class="container">
-        <div class="jumbotron text-center">
-            <h1><span class="fa fa-lock"></span> Node Authentication</h1>
-
-            <p>Login or Register with:</p>
-
-            <a href="/login" class="btn btn-default"><span class="fa fa-user"></span> Local Login</a>
-            <a href="/signup" class="btn btn-default"><span class="fa fa-user"></span> Local Signup</a>
-        </div>
-    </div> -->
 
     <footer>
         <% include ../partials/footer %>
     </footer>
+    <script type="text/javascript" src="static/js/tabchanger.js"></script>
+    <script src="/static/js/bootstrap/bootstrap.min.js"></script>
+<script src="/static/js/bootstrap/bootstrap.js" ></script>
 </body>
 </html>
