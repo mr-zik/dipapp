@@ -5,9 +5,9 @@
     <% include ../partials/head %>
 </head>
 <body>
-    <header>
-        <% include ../partials/header %>
-    </header>
+    <!--header-->
+    <% include ../partials/header %>
+
     <main>
         <section class="services">
         <h1>Агентство предоставляет следующие услуги:</h1>
@@ -59,14 +59,8 @@
             </div>
         </section>
     </main>
-    <footer>
-        <% include ../partials/footer %>
-    </footer>
-<script type="text/javascript">
-    function toggleFilters() {
-        var e = document.getElementById('morefilters');
-        e.style.display = e.style.display == "block" ? "none" : "block";
-    }
-</script>
+    <!--footer-->
+    <% include ../partials/footer %>
+    
 </body>
 </html>

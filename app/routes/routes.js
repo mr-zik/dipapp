@@ -1,31 +1,26 @@
 // app/routes.js
 module.exports = function(app, passport) {
 
-	// =====================================
-	// HOME PAGE (with login links) ========
-	// =====================================
 	app.get('/', function(req, res) {
-		res.render('pages/index.ejs'); // load the index.ejs file
+		res.render('pages/index.ejs');
 	});
 
 	// =====================================
-	// LOGIN ===============================
+	// LOGINz SECTION ======================
 	// =====================================
-	// show the login form
+
 	app.get('/login', function(req, res) {
-		// render the page and pass in any flash data if it exists
 		res.render('pages/login.ejs', { message: req.flash('loginMessage') });
 	});
 
 	// process the login form
 	app.post('/login', passport.authenticate('local-login', {
-            successRedirect : '/profile', // redirect to the secure profile section
-            failureRedirect : '/login', // redirect back to the signup page if there is an error
+            successRedirect : '/profile',
+            failureRedirect : '/login',
             failureFlash : true // allow flash messages
 		}),
         function(req, res) {
             console.log("hello");
-
             if (req.body.remember) {
               req.session.cookie.maxAge = 1000 * 60 * 3;
             } else {
@@ -35,9 +30,9 @@ module.exports = function(app, passport) {
     });
 
 	// =====================================
-	// SIGNUP ==============================
+	// SIGNUP SECTION ======================
 	// =====================================
-	// show the signup form
+
 	app.get('/signup', function(req, res) {
 		// render the page and pass in any flash data if it exists
 		res.render('pages/signup.ejs', { message: req.flash('signupMessage') });
@@ -45,13 +40,13 @@ module.exports = function(app, passport) {
 
 	// process the signup form
 	app.post('/signup', passport.authenticate('local-signup', {
-		successRedirect : '/profile', // redirect to the secure profile section
-		failureRedirect : '/signup', // redirect back to the signup page if there is an error
+		successRedirect : '/profile', 
+		failureRedirect : '/signup',
 		failureFlash : true // allow flash messages
 	}));
 
 	// =====================================
-	// PROFILE SECTION =========================
+	// PROFILE SECTION =====================
 	// =====================================
 	// we will want this protected so you have to be logged in to visit
 	// we will use route middleware to verify this (the isLoggedIn function)
@@ -68,10 +63,12 @@ module.exports = function(app, passport) {
 		req.logout();
 		res.redirect('/');
 	});
-	/////////////////////////////////////////////////////////////////////////
-	/////////////////////////////////////////////////////////////////////////
-	//граница роутов
-	app.get('/search', isLoggedIn,needsGroup('admin'),function(req,res){
+	
+	// app.get('/search', isLoggedIn,needsGroup('admin'),function(req,res){
+ 	//     res.render('pages/search.ejs');
+	// });
+	
+	app.get('/search',function(req,res){
   		res.render('pages/search.ejs');
 	});
 
@@ -83,12 +80,6 @@ module.exports = function(app, passport) {
 		res.render('pages/add', { title: 'Search', message: 'Hello there!' })
 	});
 
-	// app.post('/addnew.html',upload.array('avatar',2),function (req,res,next) {
-	// console.log(req.files);
-	// res.send(req.files);
-	// });
-
-
 	app.get('/show',function(req,res){
 		res.render('pages/show', { title: 'Search', message: 'Hello there!' })
 	});
@@ -98,12 +89,20 @@ module.exports = function(app, passport) {
 	app.get('/health', function(req,res){
 	res.sendStatus(200);
 	});
-
 };
+
+
+
+
+
+
+// app.post('/addnew.html',upload.array('avatar',2),function (req,res,next) {
+	// console.log(req.files);
+	// res.send(req.files);
+	// });
 
 // route middleware to make sure
 function isLoggedIn(req, res, next) {
-
 	// if user is authenticated in the session, carry on
 	if (req.isAuthenticated())
 		return next();
@@ -116,7 +115,7 @@ var needsGroup = function(group) {
     if (req.user && req.user.status === group)
       next();
     else
-      //res.send(401, 'Unauthorized');
+    //res.send(401, 'Unauthorized');
   	res.redirect('/');
   };
 };

@@ -5,24 +5,17 @@
     <% include ../partials/head %>
 </head>
 <body>
-	<header>
-		<% include ../partials/header %>
-	</header>
+	<!--header-->
+    <% include ../partials/header %>
+
 	<main>
 		<% include ../partials/search-filters %>
 		<% include ../partials/search-results %>
-		<div class="pagination">
-				
-		</div>
+		<div class="pagination"></div>
 	</main>
-	<footer>
-		<% include ../partials/footer %>
-	</footer>
-	<script type="text/javascript">
-	function toggleFilters() {
-        var e = document.getElementById('morefilters');
-        e.style.display = e.style.display == "block" ? "none" : "block";
-    }
-</script>
+	<!--footer-->
+    <% include ../partials/footer %>
+
+    <script type="text/javascript" src="static/js/toggle-filters.js"></script>
 </body>
 </html>

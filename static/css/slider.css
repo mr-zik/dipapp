@@ -1,45 +1,35 @@
-/*
-essential styles:
-these make the slideshow work
-*/
 #slides{
-    position: relative;
-    height: 300px;
-    padding: 0px;
-    margin: 0px;
-    list-style-type: none;
+  position: relative;
+  height: 300px;
+  padding: 0px;
+  margin: 0px;
+  list-style-type: none;
 }
 
 .slide{
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    z-index: 1;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 1;
 
-    -webkit-transition: opacity 1s;
-    -moz-transition: opacity 1s;
-    -o-transition: opacity 1s;
-    transition: opacity 1s;
+  -webkit-transition: opacity 1s;
+  -moz-transition: opacity 1s;
+  -o-transition: opacity 1s;
+  transition: opacity 1s;
 }
 
 .showing{
-    opacity: 1;
-    z-index: 2;
+  opacity: 1;
+  z-index: 2;
 }
 
 
 .controls{
     display: none;
 }
-
-
-/*
-non-essential styles:
-just for appearance; change whatever you want
-*/
 
 .slide{
     font-size: 40px;
@@ -68,7 +58,7 @@ just for appearance; change whatever you want
   /*background-image: url('/img/flats/flat1.jpg');*/
   background-size: 100% 100%;
 }
-.slide>img{
+.slide > img{
   width: 100%;
   height: 100%;
 }

@@ -5,9 +5,9 @@
     <% include ../partials/head %>
 </head>
 <body>
-	<header>
-		<% include ../partials/header %>
-	</header>
+	<!--header-->
+    <% include ../partials/header %>
+
 	<main>
 		<section style="width: 80%;margin: 0 auto;">
 			<div class="wrslider">
@@ -118,25 +118,15 @@
 				</div>
 			</section>
 		</section>
-		
 	</main>
-	<footer>
-		<% include ../partials/footer %>
-	</footer>
+	<!--footer-->
+    <% include ../partials/footer %>
+    
 
-<!-- скрипты необходимые для карты-->
-<script type="text/javascript">
-	var map;
-	function initMap() {
-	  map = new google.maps.Map(document.getElementById('map'), {
-	    center: {lat: -34.397, lng: 150.644},
-	    zoom: 8
-	  });
-	}
-</script>
-<script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZNcrzV82Jsf10l1JkdHcAxUetSArqRos&callback=initMap">
-</script>
-<!-- конец скрипта-->
+	<!-- скрипты необходимые для карты-->
+	<script type="text/javascript" src="static/js/map.js"></script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZNcrzV82Jsf10l1JkdHcAxUetSArqRos&callback=initMap"></script>
+	<!-- конец скрипта карты-->
+
 </body>
 </html>
