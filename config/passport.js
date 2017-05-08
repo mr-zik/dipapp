@@ -1,12 +1,10 @@
 // config/passport.js
-var deploymode = require('../deploymode');
+var deploymode      = require('../deploymode');
 // load all the things we need
 var LocalStrategy   = require('passport-local').Strategy;
-
 // load up the user model
-var mysql = require('mysql');
-var bcrypt = require('bcrypt-nodejs');
-
+var mysql    = require('mysql');
+var bcrypt   = require('bcrypt-nodejs');
 var dbconfig = require('./database')(deploymode.mode);
 //var dbconfig = require('./database');
 // console.log(dbconfig);
@@ -87,7 +85,6 @@ module.exports = function(passport) {
                         req.flash('loginMessage', 'No user found.')); 
                 }
 
-                
                 if (!bcrypt.compareSync(password, rows[0].password))
                     return done(null, false, 
                         req.flash('loginMessage', 

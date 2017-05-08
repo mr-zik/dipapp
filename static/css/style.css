@@ -4,24 +4,34 @@
 	box-sizing: border-box;
 }
 
-header{
+.width80{
+	width: 80%;
+	margin: 0 10%;
+}
+
+.widthfull{
+	width: 100%;
+}
+
+/**           global things  ends    ******************/
+
+.header{
 	height: 60px;
-	width:100%;
 	border-bottom: 1px solid #dadada;
 	background-color: #fff;
 }
 
-header a{
-	text-decoration: none !important;
-	color: #555 !important;
-	display: block !important;
+.header a{
+	text-decoration: none;
+	color: #555;
+	display: block;
 }
 
-header a:hover{
-	color:#008ed6 !important;
+.header a:hover{
+	color:#008ed6;
 }
 
-header ul{
+.header ul{
 	height: 60px;
 	display: flex;
 	justify-content: flex-end;
@@ -29,24 +39,21 @@ header ul{
 	align-items: center;
 }
 
-header ul >li{
+.header ul >li{
 	font-size: 16px;
 	color: #454545;
 	line-height: 59px;
 	font-family: 'Open Sans',sans-serif;
-	padding-left: 10px;
-	padding-right: 10px;
+	padding: 0 10px;
 	margin-bottom: 1px;
 }
 
-header ul>li:hover{
+.header ul>li:hover{
 	background-color: #F5F4F4;
 }
 
 
-
 /*************************************************************************************/
-
 
 
 body{
@@ -58,19 +65,16 @@ body{
 /*************************************************************************************/
 
 
-
-
 main{
 	min-height: 500px;
-	width: 100%;
 }
 
 
 /*************************************************************************************/
 /*show page*/
+
 .wrslider{
 	margin-top:20px;
-	width: 100%;
 	height: 400px;/*??????*/
 	display: flex;
 	justify-content: space-between;
@@ -81,8 +85,7 @@ main{
 	height: inherit;
 }
 
-.slbig>img{
-	width: 100%;
+.slbig > img{
 	height: 99%;
 }
 
@@ -97,18 +100,16 @@ main{
 	cursor: pointer;
 }
 
-.slpreviev>img{
-
-}
 
 /*************************************************************************************/
 .descwrap{
 	display: flex;
-
 }
+
 .descwrap>div{
 	width: 50%;
 }
+
 .descwrap>.description{
 	font-size: 18px;
 }
@@ -116,40 +117,33 @@ main{
 .address{
 	font-size: 18px;
 }
-/*.address{
-	display: flex;
-
-}
-.address>div{
-	width: 50%;
-}*/
-
 
 .comment-item{
 	width: 70%;
 	margin-bottom: 20px;
-
 	display: flex;
 	justify-content: space-between;
 }
+
 .commetn-image{
 	width: 10%;
-	
 }
+
 .commnet-image{
 	font-weight: bold;
 }
+
 .comment-description{
 	width: 89%;
 	font-size: 18px;
 
 }
+
+
 /*************************************************************************************/
 .offerwrap{
 	width: 78%;
-	margin:30px 10%;
-	margin-top:70px;
-	margin-bottom: 70px;
+	margin:70px 10%;
 	display: flex;
 	justify-content: space-between;
 }
@@ -163,31 +157,31 @@ main{
 	list-style: none;
 	text-align: center;
 }
+
 .offer-body>ul>li:last-child{
 	padding-top: 10px;
 }
 /*************************************************************************************/
-/**/
-.add{
-	width: 80%;
-	margin:0 auto;
-}
 
-/*************************************************************************************/
+
 .w3-row{
 	width: 100%;
-content: "";
-display: table;
-clear: both;
+	content: "";
+	display: table;
+	clear: both;
+
 }
+
 .w3-row::before,.w3-row::after{
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
+
 .w3-padding{
 	padding: 8px 16px !important;
 }
+
 .w3-bottombar{
 	border-bottom: 6px solid #ccc !important;
 }
@@ -196,21 +190,24 @@ clear: both;
 	width: 33.33333%;
 	float: left;
 }
+
 .w3-hover-light-grey:hover{
 	color: #000 !important;
 }
+
 .w3-border-red {
     border-color: #f44336 !important;
     border-color:#4CAF50 !important;
 }
+
+
 /*************************************************************************************/
 .profile{
-	width: 80%;
 	margin: 40px 10%;
 	display: flex;
 	justify-content: space-between;
-
 }
+
 .card{
 	width: 37%;
 	height: 500px;
@@ -233,10 +230,12 @@ clear: both;
 	margin: 10px 0; 
 	margin-bottom: 20px;
 }
+
 .card-city{
 	margin-bottom: 50px;
 	height: 10px;
 }
+
 .card-city>span{
 	padding: 10px;
 	background-color: #1ABC9C;
@@ -245,11 +244,9 @@ clear: both;
 	text-align: center;
 	width: 20%;
 	margin-left: 40%;
-	
 }
 
 .card-descr{
-	width: 100%;
 	padding: 10 10px;
 	text-align: center;
 }
@@ -258,6 +255,7 @@ clear: both;
 	margin-top: 20px;
 	text-align: center;
 }
+
 /*************************************************************************/
 .tasks{
 	/*37%*/
@@ -276,39 +274,34 @@ clear: both;
 	border-top:1px solid #D8D8D8;
 	border-bottom: 1px solid #D8D8D8;
 }
+
 .task-row:hover{
 	background-color: #EDEDED;
 	color:#000;
 }
-.tasks>button{
+
+.tasks > button{
 	width: 44%;
 	margin:20px 27%;
 }
+
 /*************************************************************************************/
+
 .services{
-	width: 80%;
-	margin: 0 10%;
 	padding-top: 20px;
 }
+
 .serv-item{
 	margin-bottom: 20px;
-	width: 100%;
 	display: flex;
 	justify-content: space-between;
 }
 
-
-.serv-item{
-	width: 100%;
-}
 .serv-img{
 	width: 50%;
 	margin-right: 20px;
-	
 }
-.serv-img>img{
-	width: 100%;
-}
+
 .serv-desc{
 	width: 50%;
 }
@@ -323,15 +316,13 @@ footer{
 }
 
 footer>nav{
-	width: 100%;
 	background-color: #EEEEEE;
 	border-top:4px solid #DDDDDD;
 	border-bottom:1px solid #DDDDDD;
 	padding-bottom: 10px;
 }
+
 .foot-wrapper{
-	width: 80%;
-	margin: 0 auto;
 	display: flex;
 	justify-content:space-between; 
 	margin-top: 15px;
@@ -357,17 +348,16 @@ footer a:hover{
 }
 
 footer h4{
+	margin: 0 0 10px;
+	padding-bottom: 10px;
 	border-bottom: 1px dotted #bbb;
 	font-size: 18px;
 	font-weight: 400;
-	margin: 0 0 10px;
-	padding-bottom: 10px;
 	color: #333;
 }
 
 .subfoo{
 	padding: 40px 0;
-	width: 80%;
 	text-align: center;
 	margin: 0 10%;
 }
