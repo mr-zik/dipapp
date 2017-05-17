@@ -1,0 +1,25 @@
+DROP TABLE IF EXISTS `testnodedb`.`flats_sell` ;
+CREATE TABLE IF NOT EXISTS `testnodedb`.`flats_sell` (
+    `obj_id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `user_id` INT NULL,
+    `obj_type` VARCHAR(45) NULL,
+    `addr_city` VARCHAR(45) NULL,
+    `addr_street` VARCHAR(45) NULL,
+    `addr_object_number` VARCHAR(6) NULL,
+    `addr_metro` VARCHAR(45) NULL,
+    `obj_name` VARCHAR(45) NULL,
+    `obj_description` VARCHAR(45) NULL,
+    `obj_price` INT NULL,
+    `obj_floor` INT NULL,
+    `obj_floors_number` VARCHAR(45) NULL,
+    `obj_rooms_number` INT NULL,
+    `obj_year_build` DATE NULL,
+    `obj_sq_common` INT NULL,
+    `obj_sq_living` INT NULL,
+    `obj_sq_kitchen` INT NULL,
+    `obj_status` VARCHAR(45) NULL,
+    `obj_from` VARCHAR(45) NULL,
+    `map_coord_x` VARCHAR(45) NULL,
+    `map_coord_y` VARCHAR(45) NULL,
+    `date` VARCHAR(45) NULL)
+ENGINE = MyISAM;

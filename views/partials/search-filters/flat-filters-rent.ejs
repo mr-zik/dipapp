@@ -1,0 +1,147 @@
+<section class="search_filters">
+	<form method="post">
+
+		<input type="text" name="obj_price" placeholder="цена от" >
+		<input type="text" name="obj_price" placeholder="цена до">
+
+		<select name="addr_city">
+
+			<% for (var i = 0 ; i < cities.length ; i++){ %>
+				<option><%= cities[i].city_name %></option>
+			<% } %>
+
+		</select>
+
+		<select name="addr_street">
+			<option>Я.Коласа</option>
+		</select>
+
+		<select name="addr_metro">
+			<option value="Академия Наук">Академия Наук</option>
+			<option value="Петровщина">Петровщина</option>
+			<option value="Малиновка">Малиновка</option>
+			<option value="Грушевка">Грушевка</option>
+		</select>
+
+		<select name="obj_rooms_number">
+			<option value="1">1 комната</option>
+			<option value="2">2 комнаты</option>
+			<option value="3">3 комната</option>
+			<option value="4">4 комнаты</option>
+			<option value="4+">4+ комнаты</option>
+		</select>
+			
+		<select name="rent_time">
+			<option>длительный срок</option>
+			<option>сутки</option>
+			<option>короткий период</option>
+		</select>
+
+		<div id="morefilters">
+			<label>кондиционер</label><input type="checkbox" name="fac_aircond">
+			
+			<label>посудомоечная машина
+				<input type="checkbox" name="fac_dishwasher" >
+			</label>
+
+				<br>
+
+			<label>стиральная машина
+				<input type="checkbox" name="fac_washer">
+			</label>
+
+			<label>холодильник
+				<input type="checkbox" name="fac_fridge"><br>
+			</label>
+
+			<label>мебель
+				<input type="checkbox" name="fac_furniture">
+			</label>
+
+			<label>телефон
+				<input type="checkbox" name="fac_tel">
+			</label>
+
+			<label>СВЧ печь
+				<input type="checkbox" name="fac_microwave">
+			</label>
+
+			<label>WIFI
+				<input type="checkbox" name="fac_wifi">
+			</label>
+
+			<label>ТВ
+				<input type="checkbox" name="fac_tv">
+			</label>
+
+				<br>
+			
+			<select name="obj_from">
+				<option value="owner">От собственника</option>
+				<option value="agency">От агентства</option>
+				<option value="all">Все</option>
+			</select>
+
+			<select name="obj_type">
+				<option>type</option>
+				<option>студия</option>
+			</select>
+
+			<select name="obj_floor">
+				<option>этаж</option>
+			</select>
+
+			<select name="obj_floors_number">
+				<option>этажность</option>
+			</select>
+				
+				<br>
+
+			<label>год постройки?
+				<input type="text" name="obj_year_build" placeholder=" от ">
+				<input type="text" name="obj_year_build"   placeholder=" до">
+			</label>
+			
+				<br>
+
+			<label>общая площадь
+				<input type="text" name="obj_sq_common"  placeholder="от">
+				<input type="text" name="obj_sq_common"    placeholder="до">
+			</label>
+
+				<br>
+
+			<label>жилая площадь
+				<input type="text" name="obj_sq_living" placeholder="от">
+				<input type="text" name="obj_sq_living"   placeholder="до">
+			</label>
+			
+				<br>
+
+			<label>площадь кухни
+				<input type="text" name="obj_sq_kitchen" placeholder="от">
+				<input type="text" name="obj_sq_kitchen"   placeholder="до">
+			</label>
+			
+				<br>
+
+			<label>спальных мест
+				<input type="text" name="obj_guests_num" placeholder="от">
+				<input type="text" name="obj_guests_num"   placeholder="до">
+			</label>
+
+				<br>
+			
+			<label>с возможностью бронирования
+				<input type="checkbox" name="obj_reservation">
+			</label>
+			
+				<br>
+
+			отобразить таблицей по 3 /по 2/с картой<br>
+			<hr>
+		</div><!--morefilters-->
+		<button type="button" class="searchbtn searchbtnR" onclick="toggleFilters()">Все фильтры</button>
+		<button class="searchbtn">Искать</button>
+	</form>
+</section>

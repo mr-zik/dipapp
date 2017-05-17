@@ -9,54 +9,15 @@
     <% include ../partials/header %>
 	
 	<main class="widthfull">
-
-		<% if(type == 'none'){  %>
+		<% if(cat != 'none'){  %>
+			<%- include(path) %>
+			<% if(results == 'true'){%>
+				<%- include ../partials/search-results %>
+			<%}%>
+		<% }else{ %>
 			<% include ../partials/rent-part %>
 			<% include ../partials/sell-part %>
-		<% }else if(type == 'sell'){  %>
-			<% include ../partials/sell-part %>
-		<% } else if(type == 'rent' ) {%> 
-			<% include ../partials/rent-part %>
-		<% } else if(type == 'rent-living' ){%>
-			
-
-
-
-			<% include ../partials/search-filters/living-filters %>
-		
-			<div class="width80">
-				<span>найдено результатов : <%= data.length %></span>
-				<br><br>
-			</div>
-		
-			<% include ../partials/search-results %>
-		<% }else if(type == 'rent-commercial' ){%>
-			
-
-
-
-			<% include ../partials/search-filters/commercial-filters %>
-		
-			<div class="width80">
-				<span>найдено результатов : <%= data.length %></span>
-				<br><br>
-			</div>
-		
-			<% include ../partials/search-results %>
-		<% }else if(type == 'rent-outcity' ){%>
-			
-
-
-
-			<% include ../partials/search-filters/outcity-filters %>
-		
-			<div class="width80">
-				<span>найдено результатов : <%= data.length %></span>
-				<br><br>
-			</div>
-		
-			<% include ../partials/search-results %>
-		<% }%>
+		<%}%>
 	</main>
 
 	<!--footer-->

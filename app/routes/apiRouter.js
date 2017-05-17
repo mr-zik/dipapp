@@ -16,7 +16,6 @@ var pool = mysql.createPool({
 	});
 
 
-
 apiRouter.use(function (req,res,next) {
   console.log('Something is happening.');
   next();

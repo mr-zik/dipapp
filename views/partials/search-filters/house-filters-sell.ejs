@@ -1,0 +1,97 @@
+<section class="search_filters">
+	<form method="post">
+
+		<input type="text" name="object-price-from" placeholder="цена от" >
+		<input type="text" name="object-price-to" placeholder="цена до">
+
+		<select name="addr-city">
+			<option value="minsk">Минск</option>
+			<option value="gomel">Гомель</option>
+			<option value="brest">Брест</option>
+			<option value="grodno">Гродно</option>
+			<option value="vitebs">Витебск</option>
+			<option value="mogilev">Могилев</option>
+		</select>
+
+		<select name="addr-street">
+			<option>улица?</option>
+		</select>
+
+		<select name="addr-metro">
+			<option value="metro">Метро</option>
+			<option value="petro">Петровщина</option>
+			<option value="malina">Малиновка</option>
+			<option value="grush">Грушевка</option>
+		</select>
+
+		<select name="object-rooms-number">
+			<option value="1">1 комната</option>
+			<option value="2">2 комнаты</option>
+			<option value="3">3 комната</option>
+			<option value="4">4 комнаты</option>
+			<option value="4+">4+ комнаты</option>
+		</select>
+			
+		
+		<div id="morefilters">
+			
+			<br>
+			
+			<select name="object-from">
+				<option value="agency">От агентства</option>
+				<option value="owner">От собственника</option>
+				<option value="all">Все</option>
+			</select>
+
+			<select name="object-type">
+				<option>тип</option>
+				<option>дача</option>
+				<option>котедж</option>
+				<option>дом</option>
+			</select>
+
+			<select name="object-floors-number-from">
+				<option>этажность от</option>
+			</select>
+
+			<select name="object-floors-number-to">
+				<option>этажность до</option>
+			</select>
+				
+				<br>
+
+			<label>год постройки?
+				<input type="text" name="object-year-build-from" placeholder=" от ">
+				<input type="text" name="object-year-build-to"   placeholder=" до">
+			</label>
+			
+				<br>
+
+			<label>общая площадь
+				<input type="text" name="object-sq-common-from"  placeholder="от">
+				<input type="text" name="object-sq-common-to"    placeholder="до">
+			</label>
+
+				<br>
+
+			<label>жилая площадь
+				<input type="text" name="object-sq-living-from" placeholder="от">
+				<input type="text" name="object-sq-living-to"   placeholder="до">
+			</label>
+			
+				<br>
+
+			<label>площадь кухни
+				<input type="text" name="object-sq-kitchen-from" placeholder="от">
+				<input type="text" name="object-sq-kitchen-to"   placeholder="до">
+			</label>
+			
+				<br>
+
+			отобразить таблицей по 3 /по 2/с картой<br>
+			<hr>
+		</div><!--morefilters-->
+		<button type="button" class="searchbtn searchbtnR" onclick="toggleFilters()">Все фильтры</button>
+		<button class="searchbtn">Искать</button>
+	</form>
+</section>
