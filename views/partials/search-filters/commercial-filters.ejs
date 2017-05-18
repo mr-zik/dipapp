@@ -1,10 +1,4 @@
 <section class="search_filters">
-	<select class="supertype">
-		<option value="office">офис</option>
-		<option value="shop">магазин</option>
-		<option value="sklad">склад</option>
-		<option value="servicesphere">сфера услуг</option>
-	</select>
 	<select class="type">
 		<option value="">аптека</option>
 		<option value="">банк</option>
@@ -13,25 +7,39 @@
 		<option value="">ресторан</option>
 		<option value="">салон красоты</option>
 		<option value="">склад+офис</option>
+		<option value="">офис</option>
+		<option value="">магазин</option>
+		<option value="">склад</option>
 		<option value="">СТО</option>
 		<option value="">торговый центр</option>
 		<option value="">стрит ритейл</option>
 		<option value="">торговое место</option>
 	</select>
-	<select>
+
+	<select name="addr_city">
 		<option>Минск</option>
-		<option>гомель</option>
-		<option>Брест и тд</option>
+		<option>Гомель</option>
+		<option>Брест</option>
+		<option>Могилев</option>
+		<option>Гродно</option>
+		<option>Витебск</option>
+
+		<%# for (var i = 0 ; i < cities.length ; i++){ %>
+			<!--<option><%# cities[i].city_name %></option>-->
+		<%# } %> 
+
 	</select>
+
 	<label>площадь</label>
-	<input type="" name="price_from" placeholder="от">
-	<input type="" name="price_to" placeholder="до">
+	<input type="text" name="obj_square" placeholder="от">
+	<input type="text" name="obj_square" placeholder="до">
+
 	<label>цена м2</label>
-	<input type="" name="price_from" placeholder="от">
-	<input type="" name="price_to" placeholder="до">
+	<input type="" name="obj_price_per_meter" placeholder="от">
+	<input type="" name="obj_price_per_meter" placeholder="до">
 
 	<label>отдельный вход</label>
-	<input type="checkbox" name="price_from" placeholder="от">
+	<input type="checkbox" name="sep_entrance" placeholder="от">
 	
 	<button>искать</button>
 </section>

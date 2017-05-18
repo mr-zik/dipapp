@@ -6,19 +6,20 @@
 
 	<% for ( var i = 0 ; i < data.length ; i++){ %>
 		<div class="search_item">
-			<a href="/show">
+			<a href="/show?<%= data[i].obj_id %>">
 				<div class="s_item_image">
-					<img src=" <%= data[i].path %>" alt="изображение временно недоступно">
+					<img src=" <%= data[i].im_path %>" alt="изображение временно недоступно">
 					<!-- static/img/flats/flat11.jpg -->
 				</div>
 			</a>
 			<div class="s_item_description">
-				<div class="item-name"><%= data[i].name %></div>
-				<div class="item-price"><%= data[i].price %>BYN</div>
-				<div>Квартира: <%= data[i].rooms %> комнаты</div>
-				<span>43</span><img src="/static/img/eye.png" width="20px" height="20px;">
-				<span>рейт&#9733; &#9733; &#9733; &#9733;</span>
-				<a href="profile.html"><%= data[i].flat_id %></a><span>+375-29-451-77-86</span>
+				<div class="item-name"><%= data[i].obj_id %></div>
+				<div class="item-price"><%= data[i].obj_price %>BYN</div>
+				<div>Квартира: <%= data[i].obj_rooms_num %> к.</div><br>
+				<!-- <span>43</span><img src="/static/img/eye.png" width="20px" height="20px;"> -->
+				<!-- <span>рейт&#9733; &#9733; &#9733; &#9733;</span> -->
+				<span><%= data[i].addr_street %><%= data[i].addr_obj_num %></span>
+				<a href="profile.html?<%= data[i].obj_id %>">смотреть профиль</a><span>+375-29-451-77-86</span>
 			</div>
 		</div>
 	<% } %>

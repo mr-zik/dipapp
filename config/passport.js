@@ -14,12 +14,12 @@ module.exports = function(passport) {
 
     
     passport.serializeUser(function(user, done) {
-        done(null, user.id);
+        done(null, user.user_id);
     });
 
     // used to deserialize the user
     passport.deserializeUser(function(id, done) {
-        connection.query("SELECT * FROM users WHERE id = ? ",
+        connection.query("SELECT * FROM users WHERE user_id = ? ",
             [id], function(err, rows){
             done(err, rows[0]);
         });
@@ -35,7 +35,7 @@ module.exports = function(passport) {
         },
         function(req, username, password, done) {
             
-            connection.query("SELECT * FROM users WHERE login = ?",
+            connection.query("SELECT * FROM users WHERE user_login = ?",
                 [username], function(err, rows) {
                 if (err)
                     return done(err);
@@ -52,7 +52,7 @@ module.exports = function(passport) {
                     };
 
                     var insertQuery = 
-                    "INSERT INTO users ( login, password,status ) values (?,?,?)";
+                    "INSERT INTO users ( user_login, user_password,user_status ) values (?,?,?)";
 
                     connection.query(insertQuery,[newUserMysql.login, 
                         newUserMysql.password, newUserMysql.status],function(err, rows) {
@@ -76,7 +76,7 @@ module.exports = function(passport) {
         },
         function(req, username, password, done) { 
 
-            connection.query("SELECT * FROM users WHERE login = ?",
+            connection.query("SELECT * FROM users WHERE user_login = ?",
                 [username], function(err, rows){
                 if (err)
                     return done(err);
@@ -85,12 +85,10 @@ module.exports = function(passport) {
                         req.flash('loginMessage', 'No user found.')); 
                 }
 
-                if (!bcrypt.compareSync(password, rows[0].password))
+                if (!bcrypt.compareSync(password, rows[0].user_password))
                     return done(null, false, 
                         req.flash('loginMessage', 
                             'Oops! Wrong password.')); 
-                console.log('here');
-                
                 return done(null, rows[0]);
             });
         })

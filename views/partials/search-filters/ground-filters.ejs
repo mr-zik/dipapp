@@ -1,28 +1,30 @@
 <section class="search_filters">
-	<select name="">
-		<option value="city">Город</option>
-		<option value="city">определенный город?</option>
+	<select name="addr_city">
+		<option>Минск</option>
+		<option>Гомель</option>
+		<option>Брест</option>
+		<option>Могилев</option>
+		<option>Гродно</option>
+		<option>Витебск</option>
+
+		<%# for (var i = 0 ; i < cities.length ; i++){ %>
+			<!--<option><%# cities[i].city_name %></option>-->
+		<%# } %> 
+
 	</select>
 
-	<select name="">
-		<option value="city">Улица</option>
-		<option value="city">улица?</option>
-	</select>
-
-	<select name="">
-		<option value="city">Район</option>
-		<option value="city">определенный город?</option>
-	</select>
+	<!-- <select name="addr_street">
+			<option>Я.Коласа</option>
+	</select> -->
 
 
-	<label>размер
-	<input type="" name="" placeholder="от">
-	<input type="" name="" placeholder="до">
+	<label>размер m2
+	<input type="" name="obj_size" placeholder="от">
+	<input type="" name="obj_size" placeholder="до">
 	</label>
 
 
-	<label>цена
-	<input type="" name="" placeholder="от">
-	<input type="" name="" placeholder="до">
-	</label>
+	<input type="text" name="obj_price" placeholder="цена от" >
+	<input type="text" name="obj_price" placeholder="цена до">
+	
 </section>

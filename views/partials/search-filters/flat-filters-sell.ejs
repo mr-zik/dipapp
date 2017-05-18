@@ -1,29 +1,56 @@
 <section class="search_filters">
 	<form method="post">
-		<input type="text" name="object_price_from" placeholder="цена от" >
-		<input type="text" name="object_price_to" placeholder="цена до">
+		
+		<input type="text" name="obj_price" placeholder="цена от" >
+		<input type="text" name="obj_price" placeholder="цена до">
 
-		<select name="addr-city">
-			<option value="minsk">Минск</option>
-			<option value="gomel">Гомель</option>
-			<option value="brest">Брест</option>
-			<option value="grodno">Гродно</option>
-			<option value="vitebs">Витебск</option>
-			<option value="mogilev">Могилев</option>
+		<select name="addr_city">
+			<option>Минск</option>
+			<option>Гомель</option>
+			<option>Брест</option>
+			<option>Могилев</option>
+			<option>Гродно</option>
+			<option>Витебск</option>
 		</select>
 
-		<select name="addr-street">
-			<option>улица?</option>
+		<!-- <select name="addr_street">
+			<option>Я.Коласа</option>
+		</select> -->
+
+		<select name="addr_metro">
+			<option value="Малиновка">Малиновка</option>
+			<option value="Петровщина">Петровщина</option>
+			<option value="Михалово">Михалово</option>
+			<option value="Грушевка">Грушевка</option>
+			<option value="Институт культуры">Институт культуры</option>
+			<option value="Площадь Ленина">Площадь Ленина</option>
+			<option value="Октябрьская">Октябрьская</option>
+			<option value="Площадь победы">Площадь победы</option>
+			<option value="Площадь Я.Коласа">Площадь Я.Коласа</option>
+			<option value="Академия Наук">Академия Наук</option>
+			<option value="Парк Челюскинцев">Парк Челюскинцев</option>
+			<option value="Московская">Московская</option>
+			<option value="Восток">Восток</option>
+			<option value="Борисовский тракт">Борисовский тракт</option>
+			<option value="Уручье">Уручье</option>
+			
+			<option value="Могилевская">Могилевская</option>
+			<option value="Автозаводская">Автозаводская</option>
+			<option value="Партизанская">Партизанская</option>
+			<option value="Тракаторный завод">Тракаторный завод</option>
+			<option value="Пролетарская">Пролетарская</option>
+			<option value="Первомайская">Первомайская</option>
+			<option value="Купаловская">Купаловская</option>
+			<option value="Немига">Немига</option>
+			<option value="Фрунзенская">Фрунзенская</option>
+			<option value="Молодежная">Молодежная</option>
+			<option value="Пушкинская">Пушкинская</option>
+			<option value="Спортивная">Спортивная</option>
+			<option value="Кунцевщина">Кунцевщина</option>
+			<option value="Каменная горка">Каменная горка</option>
 		</select>
 
-		<select name="addr-metro">
-			<option value="metro">Метро</option>
-			<option value="petro">Петровщина</option>
-			<option value="malina">Малиновка</option>
-			<option value="grush">Грушевка</option>
-		</select>
-
-		<select name="object-rooms-number">
+		<select name="obj_rooms_num">
 			<option value="1">1 комната</option>
 			<option value="2">2 комнаты</option>
 			<option value="3">3 комната</option>
@@ -32,51 +59,59 @@
 		</select>
 
 		<div id="morefilters">
-			<select name="object-from">
-				<option value="agency">От агентства</option>
+			<select name="obj_from">
 				<option value="owner">От собственника</option>
-				<option value="all">Все</option>
+				<option value="agency">От агентства</option>
 			</select>
 
-			<select name="object-type">
-				<option value="false">тип</option>
-				<option value="studia">студия</option>
+			<select name="obj_type">
+				<option>type</option>
+    			<option>хрущевка</option>
+    			<option>брежневка</option>
+    			<option>сталинка</option>
+    			<option>чешский проект</option>
+    			<option>улучшенный проект</option>
+    			<option>стандартный проект</option>
+				<option>студия</option>
+				<option>новостройка</option>
 			</select>
 
-			<select name="object_floor">
-				<option>этаж</option>
-			</select>
+			<label>этаж?
+				<input type="text" name="obj_floor" placeholder=" от ">
+				<input type="text" name="obj_floor"   placeholder=" до">
+			</label>
 
-			<select name="object-floors-number">
-				<option>этажность</option>
-			</select>
+			<label>этажность
+				<input type="text" name="obj_floors_num" placeholder=" от ">
+				<input type="text" name="obj_floors_num"   placeholder=" до">
+			</label>
 
 				<br>
 
 			<label>год постройки?
-				<input type="text" name="object-year-build-from" placeholder=" от ">
-				<input type="text" name="object-year-build-to"   placeholder=" до">
+				<input type="text" name="obj_year_build" placeholder=" от ">
+				<input type="text" name="obj_year_build"   placeholder=" до">
 			</label>
 				
 				<br>
 
 			<label>общая площадь
-				<input type="text" name="object-sq-common-from"  placeholder="от">
-				<input type="text" name="object-sq-common-to"    placeholder="до">
+				<input type="text" name="obj_sq_common"  placeholder="от">
+				<input type="text" name="obj_sq_common"    placeholder="до">
 			</label>
 
 				<br>
 
 			<label>жилая площадь
-				<input type="text" name="object-sq-living-from" placeholder="от">
-				<input type="text" name="object-sq-living-to"   placeholder="до">
+				<input type="text" name="obj_sq_living" placeholder="от">
+				<input type="text" name="obj_sq_living"   placeholder="до">
 			</label>
-				
+			
 				<br>
 
 			<label>площадь кухни
-				<input type="text" name="object-sq-kitchen-from" placeholder="от">
-				<input type="text" name="object-sq-kitchen-to"   placeholder="до">
+				<input type="text" name="obj_sq_kitchen" placeholder="от">
+				<input type="text" name="obj_sq_kitchen"   placeholder="до">
 			</label>
 		</div><!--morefilters-->
 		

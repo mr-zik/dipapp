@@ -1,30 +1,61 @@
 <section class="search_filters">
 	<form method="post">
 
-		<input type="text" name="object_price_from" placeholder="цена от" >
-		<input type="text" name="object_price_to" placeholder="цена до">
+		<input type="text" name="obj_price" placeholder="цена от" >
+		<input type="text" name="obj_price" placeholder="цена до">
+
 
 		<select name="addr_city">
-			<option value="minsk">Минск</option>
-			<option value="gomel">Гомель</option>
-			<option value="brest">Брест</option>
-			<option value="grodno">Гродно</option>
-			<option value="vitebs">Витебск</option>
-			<option value="mogilev">Могилев</option>
+			<option>Минск</option>
+			<option>Гомель</option>
+			<option>Брест</option>
+			<option>Могилев</option>
+			<option>Гродно</option>
+			<option>Витебск</option>
+
+			<%# for (var i = 0 ; i < cities.length ; i++){ %>
+				<!--<option><%# cities[i].city_name %></option>-->
+			<%# } %> 
 		</select>
 
-		<select name="addr_street">
-			<option>улица?</option>
-		</select>
+		<!-- <select name="addr_street">
+			<option>Я.Коласа</option>
+		</select> -->
 
 		<select name="addr_metro">
-			<option value="metro">Метро</option>
-			<option value="petro">Петровщина</option>
-			<option value="malina">Малиновка</option>
-			<option value="grush">Грушевка</option>
+			<option value="Малиновка">Малиновка</option>
+			<option value="Петровщина">Петровщина</option>
+			<option value="Михалово">Михалово</option>
+			<option value="Грушевка">Грушевка</option>
+			<option value="Институт культуры">Институт культуры</option>
+			<option value="Площадь Ленина">Площадь Ленина</option>
+			<option value="Октябрьская">Октябрьская</option>
+			<option value="Площадь победы">Площадь победы</option>
+			<option value="Площадь Я.Коласа">Площадь Я.Коласа</option>
+			<option value="Академия Наук">Академия Наук</option>
+			<option value="Парк Челюскинцев">Парк Челюскинцев</option>
+			<option value="Московская">Московская</option>
+			<option value="Восток">Восток</option>
+			<option value="Борисовский тракт">Борисовский тракт</option>
+			<option value="Уручье">Уручье</option>
+			
+			<option value="Могилевская">Могилевская</option>
+			<option value="Автозаводская">Автозаводская</option>
+			<option value="Партизанская">Партизанская</option>
+			<option value="Тракаторный завод">Тракаторный завод</option>
+			<option value="Пролетарская">Пролетарская</option>
+			<option value="Первомайская">Первомайская</option>
+			<option value="Купаловская">Купаловская</option>
+			<option value="Немига">Немига</option>
+			<option value="Фрунзенская">Фрунзенская</option>
+			<option value="Молодежная">Молодежная</option>
+			<option value="Пушкинская">Пушкинская</option>
+			<option value="Спортивная">Спортивная</option>
+			<option value="Кунцевщина">Кунцевщина</option>
+			<option value="Каменная горка">Каменная горка</option>
 		</select>
 
-		<select name="object_rooms_number">
+		<select name="obj_rooms_num">
 			<option value="1">1 комната</option>
 			<option value="2">2 комнаты</option>
 			<option value="3">3 комната</option>
@@ -33,110 +64,115 @@
 		</select>
 			
 		<select name="rent_time">
-			<option>длительность</option>
 			<option>длительный срок</option>
 			<option>сутки</option>
 			<option>короткий период</option>
 		</select>
 
 		<div id="morefilters">
-			<label>кондиционер</label><input type="checkbox" name="facilities_aircond">
+			<label>кондиционер</label><input type="checkbox" name="fac_aircond">
 			
 			<label>посудомоечная машина
-				<input type="checkbox" name="facilities_dishwasher">
+				<input type="checkbox" name="fac_dishwasher" >
 			</label>
 
 				<br>
 
 			<label>стиральная машина
-				<input type="checkbox" name="facilities_dishwasher">
+				<input type="checkbox" name="fac_washer">
 			</label>
 
+
 			<label>холодильник
-				<input type="checkbox" name="facilities_fridge"><br>
+				<input type="checkbox" name="fac_fridge"><br>
 			</label>
 
 			<label>мебель
-				<input type="checkbox" name="facilities_furniture">
+				<input type="checkbox" name="fac_furniture">
 			</label>
 
 			<label>телефон
-				<input type="checkbox" name="facilities_tel">
+				<input type="checkbox" name="fac_tel">
 			</label>
 
 			<label>СВЧ печь
-				<input type="checkbox" name="facilities_microwave">
+				<input type="checkbox" name="fac_microwave">
 			</label>
 
 			<label>WIFI
-				<input type="checkbox" name="facilities_wifi">
+				<input type="checkbox" name="fac_wifi">
 			</label>
 
 			<label>ТВ
-				<input type="checkbox" name="facilities_tv">
+				<input type="checkbox" name="fac_tv">
 			</label>
 
 				<br>
 			
-			<select name="object_from">
-				<option value="agency">От агентства</option>
+			<select name="obj_from">
 				<option value="owner">От собственника</option>
-				<option value="all">Все</option>
+				<option value="agency">От агентства</option>
 			</select>
 
-			<select name="object_type">
-				<option>тип</option>
-				<option>студия</option>
+			<select name="obj_type">
+				<option>type</option>
+				<option>Усадьба</option>
+				<option>Дом</option>
+				<option>Дача</option>
+				<option>Котедж</option>
 			</select>
 
-			<select name="object_floors_number_from">
-				<option>этажность от</option>
-			</select>
+			<label>этаж?
+				<input type="text" name="obj_floor" placeholder=" от ">
+				<input type="text" name="obj_floor"   placeholder=" до">
+			</label>
 
-			<select name="object_floors_number_to">
-				<option>этажность до</option>
-			</select>
+			<label>этажность
+				<input type="text" name="obj_floors_num" placeholder=" от ">
+				<input type="text" name="obj_floors_num"   placeholder=" до">
+			</label>
 				
 				<br>
 
 			<label>год постройки?
-				<input type="text" name="object_year_build_from" placeholder=" от ">
-				<input type="text" name="object_year_build_to"   placeholder=" до">
+				<input type="text" name="obj_year_build" placeholder=" от ">
+				<input type="text" name="obj_year_build"   placeholder=" до">
 			</label>
 			
 				<br>
 
 			<label>общая площадь
-				<input type="text" name="object_sq_common_from"  placeholder="от">
-				<input type="text" name="object_sq_common_to"    placeholder="до">
+				<input type="text" name="obj_sq_common"  placeholder="от">
+				<input type="text" name="obj_sq_common"    placeholder="до">
 			</label>
 
 				<br>
 
 			<label>жилая площадь
-				<input type="text" name="object_sq_living_from" placeholder="от">
-				<input type="text" name="object_sq_living_to"   placeholder="до">
+				<input type="text" name="obj_sq_living" placeholder="от">
+				<input type="text" name="obj_sq_living"   placeholder="до">
 			</label>
 			
 				<br>
 
 			<label>площадь кухни
-				<input type="text" name="object_sq_kitchen_from" placeholder="от">
-				<input type="text" name="object_sq_kitchen_to"   placeholder="до">
+				<input type="text" name="obj_sq_kitchen" placeholder="от">
+				<input type="text" name="obj_sq_kitchen"   placeholder="до">
 			</label>
 			
 				<br>
 
 			<label>спальных мест
-				<input type="text" name="object_guests_number_from" placeholder="от">
-				<input type="text" name="object_guests_number_to"   placeholder="до">
+				<input type="text" name="obj_guests_num" placeholder="от">
+				<input type="text" name="obj_guests_num"   placeholder="до">
 			</label>
 
 				<br>
 			
 			<label>с возможностью бронирования
-				<input type="checkbox" name="">
+				<input type="checkbox" name="obj_reservation">
 			</label>
+			
 			
 				<br>
 

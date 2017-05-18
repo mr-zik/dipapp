@@ -135,50 +135,61 @@ module.exports = function(app, passport) {
 
 		var results = 'false';
 
-		var query1 = 'SELECT * FROM `cities`';
-		var query2 = "SELECT * FROM `flats_rent`";
+		//var query1 = 'SELECT * FROM `cities`';
+		
 	
-		var cities,data;
+		// var cities,data;
 
 
 
-		async.parallel([
-       		function(parallel_done) {
-           		connection.query(query1, {}, function(err, results) {
-               		if (err) return parallel_done(err);
-               		cities = results;
-               		console.log(results);
-               		parallel_done();
-           		});
-       		},
-       		function(parallel_done) {
-           		connection.query(query2, {}, function(err, results) {
-               		if (err) return parallel_done(err);
-               		data = results;
-              	 parallel_done();
-              	 console.log(results);
-           		});
-       		}
-    	], function(err) {
-        	 if (err) console.log(err);
-        	 //connection.end();
-         	res.render('pages/search.ejs',{title:'searchpage',data:data,cities:cities,cat:cat,path:path,results:'true'});
-    	});
+		// async.parallel([
+  //      		function(parallel_done) {
+  //          		connection.query(query1, {}, function(err, results) {
+  //              		if (err) return parallel_done(err);
+  //              		cities = results;
+  //              		//console.log(results);
+  //              		parallel_done();
+  //          		});
+  //      		},
+  //      		function(parallel_done) {
+  //          		connection.query(query2, {}, function(err, results) {
+  //              		if (err) return parallel_done(err);
+  //              		data = results;
+  //             	 parallel_done();
+  //             	 //console.log(results);
+  //          		});
+  //      		}
+  //   	], function(err) {
+  //       	 if (err) console.log(err);
+  //       	 //connection.end();
+  //       	 console.log(data.length);
+  //        	res.render('pages/search.ejs',{title:'searchpage',data:data,cities:cities,cat:cat,path:path,results:'true'});
+  //   	});
 
 
 
 
 
 
-
-
+  		//var query2 = "SELECT * FROM `flats_rent`";
+  		 var query2 = 	"SELECT arr.*, "+
+							" img.obj_id AS im_obj_id,"+
+							" img.user_id AS im_user_id,"+
+							" img.path AS im_path,"+
+							" img.status as im_status"+
+						" FROM `flats_rent` AS arr"+
+						" LEFT JOIN `images_flat_sell` AS img"+
+						" ON arr.obj_id = img.obj_id"+
+						" AND img.status = 'main'"+
+						" WHERE arr.obj_rooms_num=1";
 
 		
-		// connection.query(query,function(err, rows){
-		// 	if (err) {console.log(err);}
-		// 	data = rows;
-		// 	
-		// });
+		connection.query(query2,function(err, rows){
+			if (err) {console.log(err);}
+			console.log(query2);
+			data = rows;
+			res.render('pages/search.ejs',{title:'searchpage',data:data,cat:cat,path:path,results:'true'});
+		});
 	});
 
 
@@ -220,8 +231,8 @@ module.exports = function(app, passport) {
 
 		var query = "SELECT * FROM " + table_name +
 					" LEFT JOIN " + img_table_name +
-					" ON "  + table_name + ".object_id = "
-							+ img_table_name +".object_id" +
+					" ON "  + table_name + ".obj_id = "
+							+ img_table_name +".obj_id" +
 					" AND " + img_table_name +".status = 'main'";
 
 					//" WHERE " + table_name +".object_city = '"+ req.body['addr-city']+ "'";
@@ -238,7 +249,7 @@ module.exports = function(app, passport) {
 			if(sign == "BTW"){
 				query += " BETWEEN ("+val[0]+","+val[1]+")";
 			}else{
-				query+=sign+val;
+				query+=sign+"'"+val+"'";
 			}
 			isStart = 'false';
 		}
@@ -271,11 +282,11 @@ module.exports = function(app, passport) {
 		// console.log(cat);
 		// console.log(path);
 		
-		// connection.query(query,function(err, rows){
-		// 	if (err) {console.log(err);}
-		// 	res.render('pages/search.ejs',{title:'searchpage',data:rows,cat:cat,path:path,results:results});
-		// });
-		res.send('404');
+		connection.query(query,function(err, rows){
+			if (err) {console.log(err);}
+			res.render('pages/search.ejs',{title:'searchpage',data:rows,cat:cat,path:path,results:results});
+		});
+		//res.send('404');
 	});
 
 
