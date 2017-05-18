@@ -81,17 +81,28 @@ module.exports = function(app, passport) {
 	//===================================================================================================
 
 	//search page 
+
+
+
+
+
+
 	app.get('/search',function(req,res){
 		res.render('pages/search.ejs',{title:'searchpage',cat:'none'});	
 	});
 
 	app.get('/search/:cat',function(req,res){
 		var cat = req.params.cat;
+
 		var notfound = 'we are here';
 
-		if(cat == 'rent' || cat == 'sell'){
-			cat += '-part.ejs';
-		}else{	res.send(notfound);	}
+
+
+		 if(cat == 'rent' || cat == 'sell'){
+		 	var path = '../partials/';
+		 	path += cat+'-part.ejs';
+		 	//cat += '-part.ejs';
+		 }else{	res.send(notfound);	}
 		
 		// switch(req.params.cat){
 		// 	case 'rent' : cat = 'rent-part.ejs';
@@ -100,8 +111,8 @@ module.exports = function(app, passport) {
 		// 		break;
 		// 	default: res.send(notfound);
 		// }
-		var path = '../partials/';
-		path += cat;
+		 
+		
 		console.log(path);
 		res.render('pages/search.ejs',{title:'searchpage',cat:cat,path:path,results:'none'});			
 	});
@@ -171,14 +182,24 @@ module.exports = function(app, passport) {
 
 
 
+
+
   		//var query2 = "SELECT * FROM `flats_rent`";
+
+  		//1 из какой таблицы тянуть?
+  		//2 таблица картинок
+  		//3 параметры
+
+
+  		var src_table = "`flats_rent`";
+  		var img_table_name = "`images_flats_rent`";
+
   		 var query2 = 	"SELECT arr.*, "+
 							" img.obj_id AS im_obj_id,"+
-							" img.user_id AS im_user_id,"+
 							" img.path AS im_path,"+
 							" img.status as im_status"+
-						" FROM `flats_rent` AS arr"+
-						" LEFT JOIN `images_flat_sell` AS img"+
+						" FROM " + src_table + " AS arr"+
+						" LEFT JOIN " + img_table_name + " AS img"+
 						" ON arr.obj_id = img.obj_id"+
 						" AND img.status = 'main'"+
 						" WHERE arr.obj_rooms_num=1";
@@ -216,7 +237,6 @@ module.exports = function(app, passport) {
 				break;
 			default: res.send(notfound);
 		}
-
 		path = '../partials/search-filters/';
 		path+=subcat;
 		var results = 'true';
@@ -226,7 +246,7 @@ module.exports = function(app, passport) {
 		
 		//var search_params = req.body;
 		var table_name ="`" + req.params.subcat+"_"+req.params.cat+"`";
-		var img_table_name = "`images_flat_sell`";
+		var img_table_name = "`images`";
 
 
 		var query = "SELECT * FROM " + table_name +
@@ -337,7 +357,7 @@ function isLoggedIn(req, res, next) {
 
 var needsGroup = function(group) {
   return function(req, res, next) {
-    if (req.user && req.user.status === group)
+    if (req.user && req.user.user_status === group)
       next();
     else
     //res.send(401, 'Unauthorized');

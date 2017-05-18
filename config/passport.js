@@ -56,7 +56,7 @@ module.exports = function(passport) {
 
                     connection.query(insertQuery,[newUserMysql.login, 
                         newUserMysql.password, newUserMysql.status],function(err, rows) {
-                        newUserMysql.id = rows.insertId;
+                        newUserMysql.user_id = rows.insertId;
 
                         return done(null, newUserMysql);
                     });
@@ -78,6 +78,7 @@ module.exports = function(passport) {
 
             connection.query("SELECT * FROM users WHERE user_login = ?",
                 [username], function(err, rows){
+                    console.log('we are here');
                 if (err)
                     return done(err);
                 if (!rows.length) {
