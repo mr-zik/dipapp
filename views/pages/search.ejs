@@ -11,7 +11,7 @@
 	<main class="widthfull">
 		<% if(cat != 'none'){  %>
 			<%- include(path) %>
-			<% if(results == 'true'){%>
+			<% if(data != 'none'){%>
 				<%- include ../partials/search-results %>
 			<%}%>
 		<% }else{ %>

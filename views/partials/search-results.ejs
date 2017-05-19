@@ -6,7 +6,7 @@
 
 	<% for ( var i = 0 ; i < data.length ; i++){ %>
 		<div class="search_item">
-			<a href="/show?<%= data[i].obj_id %>">
+			<a href="/show/<%= cat %>/<%= subcat %>/<%= data[i].obj_id %>">
 				<div class="s_item_image">
 					<img src=" <%= data[i].im_path %>" alt="изображение временно недоступно">
 					<!-- static/img/flats/flat11.jpg -->

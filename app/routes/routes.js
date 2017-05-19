@@ -82,27 +82,26 @@ module.exports = function(app, passport) {
 
 	//search page 
 
-
-
-
-
-
 	app.get('/search',function(req,res){
 		res.render('pages/search.ejs',{title:'searchpage',cat:'none'});	
 	});
 
+
+
+
+
+
+
+
+
+
+
 	app.get('/search/:cat',function(req,res){
+		
 		var cat = req.params.cat;
-
-		var notfound = 'we are here';
-
-
-
 		 if(cat == 'rent' || cat == 'sell'){
-		 	var path = '../partials/';
-		 	path += cat+'-part.ejs';
-		 	//cat += '-part.ejs';
-		 }else{	res.send(notfound);	}
+		 	var path = '../partials/' + cat + '-part.ejs';
+		 }else{	res.send('404');}
 		
 		// switch(req.params.cat){
 		// 	case 'rent' : cat = 'rent-part.ejs';
@@ -112,104 +111,99 @@ module.exports = function(app, passport) {
 		// 	default: res.send(notfound);
 		// }
 		 
-		
-		console.log(path);
-		res.render('pages/search.ejs',{title:'searchpage',cat:cat,path:path,results:'none'});			
+		res.render('pages/search.ejs',{title:'searchpage',cat:cat,path:path,data:'none'});			
 	});
 
 	app.get('/search/:cat/:subcat/',function(req,res){
-
 		var cat,subcat,path;
-		var notfound = '404asd ';
+		
+		
 		switch(req.params.cat){
 			case 'rent' : cat = 'rent'; 
 				break;
 			case 'sell' : cat = 'sell';
 				break;
-			default: res.send(notfound);
+			default: res.send('notfound');
 		}
 
-		switch(req.params.subcat){
-			case 'houses' : subcat = 'house-filters-' + cat; 
-				break;
-			case 'flats' : subcat = 'flat-filters-' + cat;
-				break;
-			case 'commercial' : subcat = 'commercial-filters';
-				break;
-			case 'ground' : subcat = 'ground-filters';
-				break;
-			default: res.send(notfound);
-		}
-
+		subcat = req.params.subcat;
 		path = '../partials/search-filters/';
-		path+=subcat;
 
-		var results = 'false';
+		if (subcat == 'houses' || subcat == 'flats') {
+			path += subcat + '-filters-' + cat;
+		}else if(subcat =='commercial' || subcat == 'ground'){
+			path += subcat +'-filters';
+		}else{
+			res.send('404');
+		}
 
-		//var query1 = 'SELECT * FROM `cities`';
+		// switch(req.params.subcat){
+		// 	case 'houses' : path +=	'houses-filters-' + cat; subcat = 'houses';
+		// 		break;
+		// 	case 'flats' : path += 'flats-filters-' + cat; subcat = 'flats';
+		// 		break;
+		// 	case 'commercial' : path += 'commercial-filters'; subcat = 'commercial';
+		// 		break;
+		// 	case 'ground' : path += 'ground-filters'; subcat = 'ground';
+		// 		break;
+		// 	default: res.send('404');
+		// }
+
 		
-	
-		// var cities,data;
+		
+
+		
 
 
 
-		// async.parallel([
-  //      		function(parallel_done) {
-  //          		connection.query(query1, {}, function(err, results) {
-  //              		if (err) return parallel_done(err);
-  //              		cities = results;
-  //              		//console.log(results);
-  //              		parallel_done();
-  //          		});
-  //      		},
-  //      		function(parallel_done) {
-  //          		connection.query(query2, {}, function(err, results) {
-  //              		if (err) return parallel_done(err);
-  //              		data = results;
-  //             	 parallel_done();
-  //             	 //console.log(results);
-  //          		});
-  //      		}
-  //   	], function(err) {
-  //       	 if (err) console.log(err);
-  //       	 //connection.end();
-  //       	 console.log(data.length);
-  //        	res.render('pages/search.ejs',{title:'searchpage',data:data,cities:cities,cat:cat,path:path,results:'true'});
-  //   	});
+//   async.parallel([
+//      		function(parallel_done) {
+//          		connection.query(query1, {}, function(err, results) {
+//              		if (err) return parallel_done(err);
+//              		cities = results;
+//              		//console.log(results);
+//              		parallel_done();
+//          		});
+//      		},
+//      		function(parallel_done) {
+//          		connection.query(query2, {}, function(err, results) {
+//              		if (err) return parallel_done(err);
+//              		data = results;
+//             	 parallel_done();
+//             	 //console.log(results);
+//          		});
+//      		}
+//   	], function(err) {
+//       	 if (err) console.log(err);
+//       	 //connection.end();
+//       	 console.log(data.length);
+//        	res.render('pages/search.ejs',{title:'searchpage',data:data,cities:cities,cat:cat,path:path,results:'true'});
+//   	});
 
 
 
-
-
-
-
-
-  		//var query2 = "SELECT * FROM `flats_rent`";
-
-  		//1 из какой таблицы тянуть?
-  		//2 таблица картинок
-  		//3 параметры
-
-
-  		var src_table = "`flats_rent`";
-  		var img_table_name = "`images_flats_rent`";
+  		// src_table = "`flats_rent`";   
+  		var table_name ="`"+ subcat+"_"+cat+"`";
+  		//var img_table_name = "`images_flats_rent`";
+  		var img_table = "`images_"+subcat+"_"+cat+"`";
 
   		 var query2 = 	"SELECT arr.*, "+
 							" img.obj_id AS im_obj_id,"+
 							" img.path AS im_path,"+
 							" img.status as im_status"+
-						" FROM " + src_table + " AS arr"+
-						" LEFT JOIN " + img_table_name + " AS img"+
+						" FROM " + table_name + " AS arr"+
+						" LEFT JOIN " + img_table + " AS img"+
 						" ON arr.obj_id = img.obj_id"+
-						" AND img.status = 'main'"+
-						" WHERE arr.obj_rooms_num=1";
+						" AND img.status = 'main'";
+						//" WHERE arr.obj_rooms_num=1";
 
 		
 		connection.query(query2,function(err, rows){
 			if (err) {console.log(err);}
+			console.log('here2');
 			console.log(query2);
 			data = rows;
-			res.render('pages/search.ejs',{title:'searchpage',data:data,cat:cat,path:path,results:'true'});
+			res.render('pages/search.ejs',{title:'searchpage',data:data,cat:cat,subcat:subcat,path:path});
 		});
 	});
 
@@ -217,45 +211,58 @@ module.exports = function(app, passport) {
 	app.post('/search/:cat/:subcat/',function(req,res){
 
 		var cat,subcat,path;
-		var notfound = '404asd ';
+
 		switch(req.params.cat){
 			case 'rent' : cat = 'rent'; 
 				break;
 			case 'sell' : cat = 'sell';
 				break;
-			default: res.send(notfound);
+			default: res.send('404');
 		}
 
-		switch(req.params.subcat){
-			case 'houses' : subcat = 'house-filters-' + cat; 
-				break;
-			case 'flats' : subcat = 'flat-filters-' + cat;
-				break;
-			case 'commercial' : subcat = 'commercial-filters';
-				break;
-			case 'ground' : subcat = 'ground-filters';
-				break;
-			default: res.send(notfound);
-		}
+
+
+		subcat = req.params.subcat;
 		path = '../partials/search-filters/';
-		path+=subcat;
-		var results = 'true';
 
-		console.log(req.body);
+		if (subcat == 'houses' || subcat == 'flats') {
+			path += subcat + '-filters-' + cat;
+		}else if(subcat =='commercial' || subcat == 'ground'){
+			path += subcat +'-filters';
+		}else{
+			res.send('404');
+		}
+		// switch(req.params.subcat){
+		// 	case 'houses' : subcat = 'houses-filters-' + cat; 
+		// 		break;
+		// 	case 'flats' : subcat = 'flats-filters-' + cat;
+		// 		break;
+		// 	case 'commercial' : subcat = 'commercial-filters';
+		// 		break;
+		// 	case 'ground' : subcat = 'ground-filters';
+		// 		break;
+		// 	default: res.send(notfound);
+		// }
+		// path = '../partials/search-filters/';
+		// path+=subcat;
+		
+		
+		//console.log(req.body);
 
 		
 		//var search_params = req.body;
 		var table_name ="`" + req.params.subcat+"_"+req.params.cat+"`";
-		var img_table_name = "`images`";
+		var img_table = "`images_"+subcat+"_"+cat+"`";
 
-
-		var query = "SELECT * FROM " + table_name +
-					" LEFT JOIN " + img_table_name +
-					" ON "  + table_name + ".obj_id = "
-							+ img_table_name +".obj_id" +
-					" AND " + img_table_name +".status = 'main'";
-
-					//" WHERE " + table_name +".object_city = '"+ req.body['addr-city']+ "'";
+		var alias = 'arr';
+		var query =	"SELECT arr.*, "+
+						" img.obj_id AS im_obj_id,"+
+						" img.path AS im_path,"+
+						" img.status as im_status"+
+					" FROM " + table_name + " AS arr"+
+					" LEFT JOIN " + img_table + " AS img"+
+					" ON arr.obj_id = img.obj_id"+
+					" AND img.status = 'main'";
 
 		var form = req.body;
 		var isStart = 'true';
@@ -264,7 +271,7 @@ module.exports = function(app, passport) {
 		function addToQuery(sign,key,val){
 
 			let clause = (isStart == 'true') ? " WHERE " : " AND ";
-			query += clause+table_name + "." + key;
+			query += clause+alias + "." + key;
 
 			if(sign == "BTW"){
 				query += " BETWEEN ("+val[0]+","+val[1]+")";
@@ -289,7 +296,6 @@ module.exports = function(app, passport) {
 				}else if(k[0] == '' && k[1] != '') {
 					addToQuery("<=",key,k[1]);
 				}
-
 			}else if (form[key] == 'on') { 
 				addToQuery("=",key,1);
 			}else{
@@ -297,20 +303,70 @@ module.exports = function(app, passport) {
 			}
 			//конец магии!
 		}
-
-		console.log(query);
-		// console.log(cat);
-		// console.log(path);
 		
 		connection.query(query,function(err, rows){
 			if (err) {console.log(err);}
-			res.render('pages/search.ejs',{title:'searchpage',data:rows,cat:cat,path:path,results:results});
+			console.log(rows);
+			res.render('pages/search.ejs',{title:'searchpage',data:rows,cat:cat,subcat:subcat,path:path});
 		});
-		//res.send('404');
 	});
 
 
+	app.get('/show/:cat/:subcat/:id',function(req,res){
+		console.log(req.params);
 
+		var table_name = "`"+req.params.subcat+"_"+ req.params.cat+"`";
+		var img_table = "`images_"+req.params.subcat+"_"+req.params.cat+"`";
+
+
+		var query1 = "SELECT * FROM " + table_name + " WHERE obj_id =" + req.params.id;
+		var query2 = "SELECT * FROM " + img_table + " WHERE obj_id =" + req.params.id;
+		
+		async.parallel([
+			function(parallel_done) {
+				connection.query(query1, {}, function(err, results) {
+					if (err) return parallel_done(err);
+					object = results;
+					console.log(results);
+					parallel_done();
+				});
+			},
+			function(parallel_done) {
+				connection.query(query2, {}, function(err, results) {
+					if (err) return parallel_done(err);
+					images = results;
+					parallel_done();
+					console.log(results);
+				});
+			}
+			], function(err) {
+				if (err) console.log(err);
+				//connection.end();
+				// console.log(data.length);
+				res.render('pages/show.ejs',{title:'searchpage',object:object,images:images});
+			});
+
+
+
+		// var query = "SELECT arr.*,"+
+		// 				" img.obj_id AS im_obj_id,"+
+		// 				" img.path AS im_path,"+
+		// 				" img.status as im_status"+
+		// 			" FROM " + table_name + " AS arr"+
+		// 			" LEFT JOIN " + img_table + " AS img"+
+		// 			" ON arr.obj_id = img.obj_id"+
+		// 			//" AND img.status = 'main'";
+		// 			"WHERE arr.obj_id="+ req.params.id;
+
+
+
+		// connection.query(query,function(err, rows){
+		// 	if (err) {console.log(err);}
+		// 	console.log(rows);
+		// 	res.render('pages/show', { title: 'Search', message: 'Hello there!',data:rows })
+		// });
+		
+	});
 
 
 
@@ -323,10 +379,6 @@ module.exports = function(app, passport) {
 
 	app.get('/add',function(req,res){
 		res.render('pages/add', { title: 'Search', message: 'Hello there!' })
-	});
-
-	app.get('/show',function(req,res){
-		res.render('pages/show', { title: 'Search', message: 'Hello there!' })
 	});
 
 	// IMPORTANT: Your application HAS to respond to GET /health with status 200

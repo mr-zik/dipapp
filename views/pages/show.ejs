@@ -11,46 +11,102 @@
 	<main class="widthfull">
 		<section style="width: 80%;margin: 0 auto;">
 			<div class="wrslider widhtfull">
-				<div class="slbig"><img src="static/img/flats/flat13.jpg" class="widthfull"></div>
+				<div class="slbig">
+					<img src="<%= images[0].path %>" class="widthfull">
+				</div>
 				<div class="slpreviev">
-					<img src="static/img/flats/flat1.jpg">
-					<img src="static/img/flats/flat15.jpg">
-					<img src="static/img/flats/flat14.jpg">
-					<img src="static/img/flats/flat13.jpg">
-					<img src="static/img/flats/flat1.jpg">
-					<img src="static/img/flats/flat1.jpg">
-					<img src="static/img/flats/flat1.jpg">
-					<img src="static/img/flats/flat1.jpg">
+					<% for ( var i = 0 ; i < images.length ; i++){ %>
+						<img src="<%= images[i].path %>">
+					<%}%>
 				</div>
 			</div>
 			
-			<h1>Шведская улица 23,Минск</h1>
+			<h1><%= object[0].obj_name%></h1>
 			<hr>
-			<h2>Владелец <a href="profile.html">Антон Иванов</a></h2>
+			<h2>Владелец <a href="profile/<%= object[0].user_id %>">Антон Иванов</a></h2>
 			<hr>
 			<div class="descwrap">
 				<div class="description">
+
 					<h2>Описание</h2>
 					<!-- <b>Рейтинг:</b> 50/100<br> -->
-				    <b>Адрес:</b> Минск Притыцкого ул. д. 32<br>
-				    <b>Метро:</b>(Минск) Пушкинская<br><br>
-				    <b>Кол-во комнат:</b> 3<br>
-				    <b>Этаж:</b> 2<br>
-				    <b>Лифт:</b>есть <br><br>
-				    <b>Площадь (общая):</b> 62.96 м²<br>
-				    <b>Площадь (жилая):</b> 42.03 м²<br>
-				    <b>Площадь (кухня):</b> 7.83 м²<br>
+					<b>Описание от автора:</b><%= object[0].obj_description %>
+					<br><br>
+					<b>Цена: </b><%= object[0].obj_price %>
+					<br>
+
+				    <b>Адрес:</b> <%= object[0].addr_city %>, ул. <%= object[0].addr_street %> д.<%= object[0].addr_obj_num %> 32<br>
+
+
+
+
+				    <% if(object[0].addr_city == "Минск"){%>
+				    	<b>Метро:</b><%=object[0].addr_metro %>
+				    <%}%>
+
+				    <br><br>
+				    
+
+				    <b>Кол-во комнат:</b> <%= object[0].obj_rooms_num %><br>
+				    <b>Этаж:</b> <%= object[0].obj_floor %><br>
+				    <b>Этажность:</b> <%= object[0].obj_floors_num %><br>
+				    <b>Площадь (общая):</b> <%= object[0].obj_sq_common %> м²<br>
+				    <b>Площадь (жилая):</b> <%= object[0].obj_sq_living %> м²<br>
+				    <b>Площадь (кухня):</b> <%= object[0].obj_sq_kitchen %> м²<br>
+
 				    <br>
-				    <b>Тип дома:</b>Панельный<br>
-				    <b>Год постройки:</b> 1980 или ранее<br>  
+				    <b>Тип дома:</b><%= object[0].obj_type %><br>
+				    <b>Год постройки:</b> <%= object[0].obj_year_build %><br>  
+				    <b>Количество спальных мест :</b><%= object[0].obj_guests_num %><br>
+
+				    <b>Срок аренды: </b> 			<%= object[0].rent_time %>
+				    <br><br>             			<%= object[0].obj_guests_num %>
+				    <h3>Удобства</h3>
+				    <b>Кондиционер: </b>            <%= object[0].obj_guests_num %><br>
+				    <b>Посудомоечная машинка: </b>  <%= object[0].obj_guests_num %><br>
+				    <b>Холодильник: </b>            <%= object[0].obj_guests_num %><br>
+				    <b>Мебель: </b>            		<%= object[0].obj_guests_num %><br>
+				    <b>СВЧ печь: </b>          		<%= object[0].obj_guests_num %><br>
+				    <b>Телефон: </b>           		<%= object[0].obj_guests_num %><br>
+				    <b>Телевизор: </b>         		<%= object[0].obj_guests_num %><br>
+				    <b>Стиральная машина: </b> 		<%= object[0].obj_guests_num %><br>
+				    <b>WIFI: </b>         			<%= object[0].obj_guests_num %><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 				</div>
 				<div>
 					<h2>Онлайн Бронирование</h2>
-					<span class="fa fa-lock" style="font-size: 30px;margin-left: 150px;"></span>
-					<br>
-					Владелец запретил использование данной функции
-					<br>
-					<% include ../partials/calendar %>
+
+					<% if(object[0].obj_reservation == 1){%>
+						<br>
+						<% include ../partials/calendar %>
+					<%}else{%>
+						<span class="fa fa-lock" style="font-size: 30px;margin-left: 150px;"></span>
+						<br>
+						Владелец запретил использование данной функции
+					<%}%>
+					
 					<hr>
 				</div>
 			</div>
